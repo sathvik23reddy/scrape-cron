@@ -1,0 +1,14 @@
+# .github/workflows/ping-google.yml
+name: Ping Google Every 30 Minutes
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # Every 30 minutes
+  workflow_dispatch:        # Allow manual trigger
+
+jobs:
+  ping-google:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Google
+        run: ping -c 4 google.com
