@@ -1,0 +1,14 @@
+# .github/workflows/curl-google.yml
+name: Curl Google Every 30 Minutes
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # Every 30 minutes
+  workflow_dispatch:        # Allow manual trigger
+
+jobs:
+  curl-google:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl Google
+        run: curl -I https://www.google.com
